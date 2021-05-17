@@ -28,10 +28,10 @@ opt.add_experimental_option("prefs", { \
 
 # driver = webdriver.Chrome(chrome_options=opt,service_log_path='NUL')
 driver = None
-URL = "https://teams.microsoft.com"
+URL = "https://meet.google.com/gym-qdxb-yzq"
 
 #put your teams credentials here
-CREDS = {'email' : '','passwd':''}
+CREDS = {'aarish.6374@beaconite.edu.pk' : '','aarishali':''}
 
 
 
@@ -41,12 +41,12 @@ def login():
 	print("logging in")
 	emailField = driver.find_element_by_xpath('//*[@id="i0116"]')
 	emailField.click()
-	emailField.send_keys(CREDS['email'])
+	emailField.send_keys(CREDS['aarish.6374@beaconite.edu.pk'])
 	driver.find_element_by_xpath('//*[@id="idSIButton9"]').click() #Next button
 	time.sleep(5)
 	passwordField = driver.find_element_by_xpath('//*[@id="i0118"]')
 	passwordField.click()
-	passwordField.send_keys(CREDS['passwd'])
+	passwordField.send_keys(CREDS['aarishali'])
 	driver.find_element_by_xpath('//*[@id="idSIButton9"]').click() #Sign in button
 	time.sleep(5)
 	driver.find_element_by_xpath('//*[@id="idSIButton9"]').click() #remember login
@@ -82,13 +82,13 @@ def validate_day(inp):
 def add_timetable():
 	if(not(path.exists("timetable.db"))):
 			createDB()
-	op = int(input("1. Add class\n2. Done adding\nEnter option : "))
+	op = int(input("1. https://meet.google.com/gym-qdxb-yzq\n2. Done adding\nEnter option : "))
 	while(op==1):
-		name = input("Enter class name : ")
+		name = input("urdu : ")
 		start_time = input("Enter class start time in 24 hour format: (HH:MM) ")
 		while not(validate_input("\d\d:\d\d",start_time)):
 			print("Invalid input, try again")
-			start_time = input("Enter class start time in 24 hour format: (HH:MM) ")
+			start_time = input("Enter class start time in 24 hour format: (8:32) ")
 
 		end_time = input("Enter class end time in 24 hour format: (HH:MM) ")
 		while not(validate_input("\d\d:\d\d",end_time)):
@@ -146,7 +146,7 @@ def joinclass(class_name,start_time,end_time):
 
 
 	try:
-		joinbtn = driver.find_element_by_class_name("ts-calling-join-button")
+		joinbtn = driver.find_element_by_class_name("Ask to join")
 		joinbtn.click()
 
 	except:
